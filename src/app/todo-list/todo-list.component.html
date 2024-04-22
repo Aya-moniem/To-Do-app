@@ -1,0 +1,68 @@
+<div class="container">
+    <h1 class="text-center text-primary  mt-3">{{title}}</h1>
+    <span class="line"></span>
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-sm-8 d-flex justify-content-center flex-column align-items-center p-3   shadow mx-auto rounded toDo">
+              <input class="form-control col-12 mb-3" type="text" placeholder="Add toDo.." [(ngModel)]="newTask" >
+              <button class="btn btn-primary text-center col-3" (click)="addTask()">Add</button>
+        </div>
+      </div>
+  </div>
+<br>
+@if(toDoList.length > 0){
+  <h2 class="text-center text-white">To-Do list</h2>
+}
+<div class="container">
+  <div class="row">
+  @for (task of toDoList; track $index) {
+  <div class="col-lg-7 col-sm-8 p-3 rounded shadow d-flex justify-content-between align-items-center mx-auto mb-3 toDoTask">
+      @if(task.completed){
+        <div>
+          <input class="form-check-input mx-1" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
+          <del>{{task.name}}</del>
+        </div>
+      }
+      @else{
+        <div>
+            <input class="form-check-input mx-2" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
+            @if(task.isEidt){
+               <input type="text" class="form-control w-75 d-inline-block h-50" [(ngModel)]="editTaskvalue">
+            }
+            @else{
+              {{task.name}}
+            }
+           
+        </div>
+      }
+    <div>
+      @if(task.completed){
+
+        <i class="fa-solid fa-pen  text-secondary" disabled></i>
+        <i class="fa-solid fa-clipboard-check mx-3  text-secondary" disabled></i>
+        <i class="fa-solid fa-trash  del" data-bs-toggle="tooltip" title="Delete task" (click)="removeTask($index)"></i>
+      }
+      @else {
+         @if(task.isEidt){
+          <i class="fa-solid fa-pen text-secondary" disabled></i>
+        }
+       @else {
+        <i class="fa-solid fa-pen  edit" data-bs-toggle="tooltip" title="Edit task" (click)="editTask($index)" ></i>
+       }
+        @if(task.isEidt){
+          <i class="fa-solid fa-clipboard-check mx-3 save" data-bs-toggle="tooltip" title="Save Edit task" (click)="updateTask($index,editTaskvalue)" ></i>
+        }
+        @else {
+          <i class="fa-solid fa-clipboard-check mx-3 text-secondary " disabled  ></i>
+        }
+        <i class="fa-solid fa-trash  del" data-bs-toggle="tooltip" title="Delete task" (click)="removeTask($index)"></i>
+      }
+    </div>
+  </div>
+  }
+</div>
+</div>
+
+ 
+
+</div>
