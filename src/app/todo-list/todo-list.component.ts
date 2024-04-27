@@ -1,10 +1,12 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,NgClass],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })

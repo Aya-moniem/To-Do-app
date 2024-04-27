@@ -18,9 +18,9 @@
   @for (task of toDoList; track $index) {
   <div class="col-lg-7 col-sm-8 p-3 rounded shadow d-flex justify-content-between align-items-center mx-auto mb-3 toDoTask">
       @if(task.completed){
-        <div>
+        <div class="text-decoration-line-through">
           <input class="form-check-input mx-1" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
-          <del>{{task.name}}</del>
+          {{task.name}}
         </div>
       }
       @else{
