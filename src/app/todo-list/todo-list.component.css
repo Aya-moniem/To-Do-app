@@ -5,27 +5,15 @@
     width: 70px;
     margin: 15px auto 25px;
 }
-.toDo{
+.toDo,.toDoTask{
   background-color:rgba(255, 255, 255,0.6);
 }
-.toDoTask{
-  background-color:rgba(255, 255, 255,0.6);
-}
-.del:hover{
+.edit:hover,.save:hover,.del:hover,input[type = checkbox]{
   cursor: pointer;
-  color: rgb(224, 25, 25) !important;
 }
 .edit:hover{
-    cursor: pointer;
     color: rgb(61, 61, 245) !important;
   }
 .save:hover{
-  cursor: pointer;
   color: rgb(6, 184, 6) !important;
   }
-  .content{
-    max-width:50%;
-  }
-input[type = checkbox]{
-  cursor: pointer;
-}
