@@ -1,6 +1,6 @@
 <div class="container">
-    <h1 class="text-center text-primary  mt-3">{{title}}</h1>
-    <span class="line"></span>
+    <h1 class="text-center text-primary mt-3">{{title}}</h1>
+    <div class="line"></div>
   <div class="container">
       <div class="row">
         <div class="col-lg-7 col-sm-8 d-flex justify-content-center flex-column align-items-center p-3   shadow mx-auto rounded toDo">
@@ -20,22 +20,23 @@
       @if(task.completed){
         <div class="text-decoration-line-through">
           <input class="form-check-input mx-1" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
-          {{task.name}}
+        {{task.name}}
         </div>
       }
       @else{
-        <div>
-            <input class="form-check-input mx-2" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
+        <div class="d-flex">
+            <input  class="form-check-input mx-2" type="checkbox" id="{{$index}}" [(ngModel)]="task.completed"  (change)="completeTask($index)">
             @if(task.isEidt){
-               <input type="text" class="form-control w-75 d-inline-block h-50" [(ngModel)]="editTaskvalue">
+               <input class="form-control w-75"  type="text" [(ngModel)]="editTaskvalue">
             }
             @else{
-              {{task.name}}
+              <span style="width:fit-content; height: max-content">{{task.name}}</span>
+            
             }
            
         </div>
       }
-    <div>
+    <div class="d-flex justify-content-between align-items-center">
       @if(task.completed){
 
         <i class="fa-solid fa-pen  text-secondary" disabled></i>

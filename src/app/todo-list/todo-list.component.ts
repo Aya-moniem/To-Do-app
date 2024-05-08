@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -6,13 +6,13 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [FormsModule,NgClass],
+  imports: [FormsModule,NgClass,NgStyle],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.css'
 })
 export class TodoListComponent {
   title:string = 'To-Do App';
-  toDoList: {name: string, completed: boolean,isEidt:boolean }[] = [];
+  toDoList:{name: string, completed: boolean,isEidt:boolean}[] = [];
   newTask:string = '';
   checked:boolean = false;
   editTaskvalue : string='';

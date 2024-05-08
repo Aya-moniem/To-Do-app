@@ -1,7 +1,6 @@
 .line{
-    display: block;
     background-color: rgb(21, 21, 255);
-    height: 1.5px;
+    height:1.5px;
     width: 70px;
     margin: 15px auto 25px;
 }
